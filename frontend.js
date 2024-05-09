@@ -1,3 +1,5 @@
+// Start of the response
+
 import React, { useState } from "react";
 import "./App.css";
 
@@ -6,7 +8,6 @@ function Frontend() {
   const [destination, setDestination] = useState("");
   const [departureDate, setDepartureDate] = useState("");
   const [passengerType, setPassengerType] = useState("adult");
-  const [cabinClass, setCabinClass] = useState("economy");
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
 
@@ -26,7 +27,6 @@ function Frontend() {
             type: passengerType,
           },
         ],
-        cabin_class: cabinClass,
       },
     };
 
@@ -81,15 +81,6 @@ function Frontend() {
             <option value="child">Child</option>
             <option value="infant_without_seat">Infant Without Seat</option>
           </select>
-          <select
-            value={cabinClass}
-            onChange={(e) => setCabinClass(e.target.value)}
-          >
-            <option value="economy">Economy</option>
-            <option value="premium_economy">Premium Economy</option>
-            <option value="business">Business</option>
-            <option value="first">First</option>
-          </select>
           <button onClick={handleSearch} disabled={loading}>
             {loading ? "Loading..." : "Search"}
           </button>
@@ -98,7 +89,6 @@ function Frontend() {
 
       <ul>
         <h2>Results</h2>
-        {/* Start response */}
         {results.map((offer, index) => (
           <li
             key={index}
@@ -129,10 +119,11 @@ function Frontend() {
             <button>Select</button>
           </li>
         ))}
-        {/* End response */}
       </ul>
     </div>
   );
 }
 
 export default Frontend;
+
+// End of the response
