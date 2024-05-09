@@ -6,7 +6,6 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route("/duffel-flights-search", methods=["POST"])
 def duffel_flights_search():
     try:
@@ -15,7 +14,7 @@ def duffel_flights_search():
             "Accept": "application/json",
             "Content-Type": "application/json",
             "Duffel-Version": "v1",
-            "Authorization": "Bearer duffel_test_O6axsBfPB1YFwLk2tVJaNYXiFhITUnItVS8FJEtfpRp",
+            "Authorization": "Bearer <YOUR_ACCESS_TOKEN>",
         }
         response = requests.post(
             "https://api.duffel.com/air/offer_requests",
@@ -27,7 +26,6 @@ def duffel_flights_search():
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({"error": str(e)}), 500
-
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
